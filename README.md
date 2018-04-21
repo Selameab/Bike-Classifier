@@ -11,6 +11,9 @@ Mountain Bike and Road Bike Classifier using Tensorflow
 #### OpenCV
 > pip install opencv-python
 
+#### scipy
+> pip install scipy
+
 #### scikit-learn
 > pip install scikit-learn
 
