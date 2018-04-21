@@ -14,34 +14,34 @@ class Model:
             y = tf.placeholder(dtype=tf.float32, shape=(None, 2), name='y')
 
             # Layers
-            layers = {
-                'CONV1_1': tf.layers.Conv2D(name='CONV1_1', kernel_size=3, filters=16, padding='same',
-                                            activation=tf.nn.relu),
-                'CONV1_2': tf.layers.Conv2D(name='CONV1_2', kernel_size=3, filters=16, padding='same',
-                                            activation=tf.nn.relu),
-                'POOL1': tf.layers.MaxPooling2D(name='POOL1', pool_size=2, strides=2),
+            layers = [
+                ('CONV1_1', tf.layers.Conv2D(name='CONV1_1', kernel_size=3, filters=16, padding='same',
+                                             activation=tf.nn.relu)),
+                ('CONV1_2', tf.layers.Conv2D(name='CONV1_2', kernel_size=3, filters=16, padding='same',
+                                             activation=tf.nn.relu)),
+                ('POOL1', tf.layers.MaxPooling2D(name='POOL1', pool_size=2, strides=2)),
 
-                'CONV2_1': tf.layers.Conv2D(name='CONV2_1', kernel_size=3, filters=32, padding='same',
-                                            activation=tf.nn.relu),
-                'CONV2_2': tf.layers.Conv2D(name='CONV2_2', kernel_size=3, filters=32, padding='same',
-                                            activation=tf.nn.relu),
-                'POOL2': tf.layers.MaxPooling2D(name='POOL2', pool_size=2, strides=2),
+                ('CONV2_1', tf.layers.Conv2D(name='CONV2_1', kernel_size=3, filters=32, padding='same',
+                                             activation=tf.nn.relu)),
+                ('CONV2_2', tf.layers.Conv2D(name='CONV2_2', kernel_size=3, filters=32, padding='same',
+                                             activation=tf.nn.relu)),
+                ('POOL2', tf.layers.MaxPooling2D(name='POOL2', pool_size=2, strides=2)),
 
-                'CONV3_1': tf.layers.Conv2D(name='CONV3_1', kernel_size=3, filters=16, strides=2, padding='same',
-                                            activation=tf.nn.relu),
-                'POOL3': tf.layers.MaxPooling2D(name='POOL2', pool_size=2, strides=2),
+                ('CONV3_1', tf.layers.Conv2D(name='CONV3_1', kernel_size=3, filters=16, strides=2, padding='same',
+                                             activation=tf.nn.relu)),
+                ('POOL3', tf.layers.MaxPooling2D(name='POOL2', pool_size=2, strides=2)),
 
-                'FLATTTEN': tf.layers.Flatten(),
+                ('FLATTTEN', tf.layers.Flatten()),
 
-                'FC1': tf.layers.Dense(name='FC1', units=32, activation=tf.nn.relu),
-                'FC2': tf.layers.Dense(name='FC2', units=16, activation=tf.nn.relu),
-                'FC3': tf.layers.Dense(name='FC3', units=2, activation=None)
-            }
+                ('FC1', tf.layers.Dense(name='FC1', units=32, activation=tf.nn.relu)),
+                ('FC2', tf.layers.Dense(name='FC2', units=16, activation=tf.nn.relu)),
+                ('FC3', tf.layers.Dense(name='FC3', units=2, activation=None))
+            ]
 
             # Connect layers
             self.__tensors = {'INPUT': x}
             net = x
-            for key, layer in layers.items():
+            for key, layer in layers:
                 net = layer(net)
                 self.__tensors[key] = net
 
