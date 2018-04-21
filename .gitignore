@@ -102,3 +102,7 @@ ENV/
 
 # Pycharm
 .idea/
+
+# Dataset
+bikes_ds.zip
+bikes_ds/
