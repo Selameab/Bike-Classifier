@@ -5,7 +5,7 @@ import cv2
 from model import Model, IMG_SIZE
 from sklearn.model_selection import train_test_split
 
-EPOCHS = 100
+EPOCHS = 200
 TRAINING_IMAGES_PATH = 'bikes_ds/training_images'
 
 
@@ -25,7 +25,7 @@ def load_dataset(path):
     y = np.eye(cls_count)[y]  # One hot encode
 
     # Split into training and validation set
-    return train_test_split(x, y, test_size=0.8, random_state=16063)
+    return train_test_split(x, y, test_size=0.5, random_state=16063)
 
 
 if __name__ == '__main__':
