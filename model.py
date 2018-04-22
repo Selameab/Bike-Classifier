@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-IMG_SIZE = (536, 334)
+IMG_SIZE = (334, 536)
 LEARNING_RATE = 1e-4
 
 
