@@ -1,36 +1,45 @@
-# Bike-Classifier
-
+Bike-Classifier
+===============
 Mountain Bike and Road Bike Classifier using Tensorflow
 
-### Dependencies
----
+Dependencies
+----------------
 
-#### TensorFlow
-> pip install tensorflow
+##### TensorFlow
+* pip install tensorflow
 
-#### OpenCV
-> pip install opencv-python
+##### OpenCV
+* pip install opencv-python
 
-#### scipy
-> pip install scipy
+##### scipy
+* pip install scipy
 
-#### scikit-learn
-> pip install scikit-learn
+##### scikit-learn
+* pip install scikit-learn
 
-### Download Images
----
+Download Images
+---------------
+Run download.py to download and extract bikes_ds.zip
 ```sh
 $ python download.py
 ```
 
-### Train
----
+Train
+-----
+Run train.py to train the model. Model is saved to ckpt.
 ```sh
-$ python train.py training_images
+$ python train.py
 ```
 
-### Test
----
+Test
+----
+Run test.py to see how well the model performs on test images.
 ```sh
-$ python test.py test_images
+$ python test.py
 ```
+
+Sample Predictions
+------------------
+Mountain Bike              |  Road Bike
+:-------------------------:|:-------------------------:
+![Mountain Bike](sample_predictions/mountain_bike.png) | ![Road Bike](sample_predictions/road_bike.png)
